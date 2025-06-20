@@ -14,8 +14,7 @@ class DatabaseSeeder extends Seeder
 
         // Insert authors
         $authors = [];
-        // foreach (range(1, 1000) as $i) {
-        foreach (range(1, 10) as $i) {
+        foreach (range(1, 1000) as $i) {
             $authors[] = [
                 'name' => $faker->name(),
                 'created_at' => now(),
@@ -27,8 +26,7 @@ class DatabaseSeeder extends Seeder
 
         // Insert categories
         $categories = [];
-        // foreach (range(1, 3000) as $j) {
-        foreach (range(1, 30) as $j) {
+        foreach (range(1, 3000) as $j) {
             $categories[] = [
                 'category' => $faker->words(5, true),
                 'created_at' => now(),
@@ -40,8 +38,7 @@ class DatabaseSeeder extends Seeder
 
         // Insert books
         $books = [];
-        // foreach (range(1, 100000) as $i) {
-        foreach (range(1, 10) as $i) {
+        foreach (range(1, 100000) as $i) {
             $books[] = [
                 'title' => $faker->words(10, true),
                 'category_id' => $faker->randomElement($categoryIds),
@@ -65,8 +62,7 @@ class DatabaseSeeder extends Seeder
 
         // Insert ratings
         $ratings = [];
-        // foreach (range(1, 500000) as $i) {
-        foreach (range(1, 15) as $i) {
+        foreach (range(1, 500000) as $i) {
             $ratings[] = [
                 'rating' => $faker->numberBetween(1, 10),
                 'book_id' => $faker->randomElement($bookIds),

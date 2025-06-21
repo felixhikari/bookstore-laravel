@@ -156,21 +156,23 @@
                     alert('Gagal: ' + error);
                 }
             });
-            $.ajax({
-                url: `http://127.0.0.1:8000/books`,
-                type: 'GET',
-                dataType: "json",
-                success: function(response) {
-                    const books = response.data;
-                    $('#bookinput').empty();
-                    $.each(books, function(i, book){
-                        $('#bookinput').append(`<option value="${book.id}">${book.title}</option>`);
-                    });
-                },
-                error: function(xhr, status, error) {
-                    alert('Gagal: ' + error);
-                }
-            });
+
+            // <--  Menampilkan Semua Book di Dropdown -->
+            // $.ajax({
+            //     url: `http://127.0.0.1:8000/books`,
+            //     type: 'GET',
+            //     dataType: "json",
+            //     success: function(response) {
+            //         const books = response.data;
+            //         $('#bookinput').empty();
+            //         $.each(books, function(i, book){
+            //             $('#bookinput').append(`<option value="${book.id}">${book.title}</option>`);
+            //         });
+            //     },
+            //     error: function(xhr, status, error) {
+            //         alert('Gagal: ' + error);
+            //     }
+            // });
         });
     </script>
 </body>

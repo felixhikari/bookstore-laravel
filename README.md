@@ -112,7 +112,7 @@ php artisan key:generate
 # DB_PASSWORD=
 
 # 5. Buat database baru di MySQL
-# (contoh nama: bookstore)
+# (nama: bookstore)
 
 # 6. Jalankan migrasi database
 php artisan migrate

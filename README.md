@@ -39,7 +39,7 @@ Setelah server dijalankan (`php artisan serve`), berikut URL halaman utama:
 
 ### ⭐ `/rate-book`
 - Form untuk memberikan rating buku
-- Hanya rating **lebih dari 5** yang dianggap valid
+- Filter buku dan auto select author 
 
 ### 🏆 `/top-authors`
 - Menampilkan **10 penulis teratas** berdasarkan jumlah voter (rating > 5)

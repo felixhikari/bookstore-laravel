@@ -61,6 +61,30 @@ Relasi:
 
 ---
 
+## Catatan Penting
+Seeding menggunakan Faker dengan detail berikut:
+- 1000 fakes author
+- 3000 fakes book category
+- 100.000 fakes books
+- 500.000 fakes rating
+
+- Proses seeding membutuhkan waktu yang sangat lama dan memerlukan memory limit yang besar
+- Durasi seeding menyesuaikan dengan perangkat, usahakan menggunakan perangkat denga spesifikasi yang memadai dan mengalokasikan memory limit PHP yang besar.
+- Lokasi PHP.ini umumnya ada di 
+C:\xampp\php\php.ini
+
+``
+memory_limit = 1G
+``
+
+contoh error
+``
+  PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in D:\My Job\Apply\Timedoor\bookstore-laravel\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php on line 669
+  PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in D:\My Job\Apply\Timedoor\bookstore-laravel\vendor\symfony\error-handler\Error\FatalError.php on line 14
+``
+
+---
+
 ## 🚀 Langkah Instalasi
 
 ```bash
@@ -108,25 +132,3 @@ php artisan serve
 # http://127.0.0.1:8000/top-authors
 
 ---
-
-## Catatan Penting
-Seeding menggunakan Faker dengan detail berikut:
-- 1000 fakes author
-- 3000 fakes book category
-- 100.000 fakes books
-- 500.000 fakes rating
-
-- Proses seeding membutuhkan waktu yang sangat lama dan memerlukan memory limit yang besar
-- Durasi seeding menyesuaikan dengan perangkat, usahakan menggunakan perangkat denga spesifikasi yang memadai dan mengalokasikan memory limit PHP yang besar.
-- Lokasi PHP.ini umumnya ada di 
-C:\xampp\php\php.ini
-
-``
-memory_limit = 1G
-``
-
-contoh error
-``
-  PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in D:\My Job\Apply\Timedoor\bookstore-laravel\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php on line 669
-  PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in D:\My Job\Apply\Timedoor\bookstore-laravel\vendor\symfony\error-handler\Error\FatalError.php on line 14
-``

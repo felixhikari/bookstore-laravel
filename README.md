@@ -88,7 +88,7 @@ contoh error
 
 - Halaman ``/rate-book`` default di dropdown bookinput tidak menampilkan semua buku maka perlu memilih ``author`` terlebih dahulu sehingga tidak membuat freez,
 - Jika mau berusaha dropdown book menampilkan semua  book, cukup hilangkkan tanda komentar di baris 160 hingga 175 di file`` rate-book.blade.php``. jika tidak bisa diclick disarankan membuat kode ter sebut menjadi komentar saja
-- Halaman ``/book-list`` memerlukan process backend dengan data cukup besar maka harap menunggu sekitar beberapa detik hingga menit menyesuaikan perangkat 
+- Halaman ``/book-list`` dan ``/top-authors ``memerlukan process backend dengan data cukup besar maka harap menunggu sekitar beberapa detik hingga menit menyesuaikan perangkat 
 
 ---
 

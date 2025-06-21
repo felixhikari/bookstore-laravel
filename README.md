@@ -73,8 +73,9 @@ Seeding menggunakan Faker dengan detail berikut:
 - Lokasi PHP.ini umumnya ada di 
 C:\xampp\php\php.ini
 
-``
 - Konfigurasi memory_limit di php.ini
+
+``
 memory_limit = 1G
 ``
 

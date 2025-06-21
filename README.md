@@ -2,7 +2,7 @@
 
 Proyek ini adalah aplikasi web sederhana berbasis Laravel yang memiliki tiga halaman utama:
 
-1. `/list-book` – Menampilkan daftar buku.
+1. `/book-list` – Menampilkan daftar buku.
 2. `/rate-book` – Memberikan rating pada buku.
 3. `/top-authors` – Menampilkan penulis terbaik berdasarkan rating yang valid.
 
@@ -12,17 +12,18 @@ Proyek ini adalah aplikasi web sederhana berbasis Laravel yang memiliki tiga hal
 
 Setelah server dijalankan (`php artisan serve`), berikut adalah URL masing-masing halaman:
 
-- 📖 **List Book**: [http://localhost:8000/list-book](http://localhost:8000/list-book)
-- ⭐ **Rate Book**: [http://localhost:8000/rate-book](http://localhost:8000/rate-book)
-- 🏆 **Top Authors**: [http://localhost:8000/top-authors](http://localhost:8000/top-authors)
+- 📖 **List Book**: [http://127.0.0.1:8000/book-list](http://127.0.0.1:8000/book-list)
+- ⭐ **Rate Book**: [http://127.0.0.1:8000/rate-book](http://127.0.0.1:8000/rate-book)
+- 🏆 **Top Authors**: [http://127.0.0.1:8000/top-authors](http://127.0.0.1:8000/top-authors)
 
 ---
 
 ## ⚙️ Fitur
 
-### 📖 /list-book
+### 📖 /book-list
 - Menampilkan daftar semua buku.
-- Informasi: judul, kategori, dan penulis.
+- Informasi: judul, kategori, rata-rata rating dan voter.
+- Pengurutan berdasarkan rata-rata rating tertinggi 
 
 ### ⭐ /rate-book
 - Form untuk memberikan rating buku.
@@ -54,41 +55,41 @@ Relasi antar tabel:
 
 ## 🚀 Cara Menjalankan Proyek
 
-Untuk menjalankan aplikasi ini secara lokal, ikuti langkah-langkah berikut:
+Untuk menjalankan aplikasi ini secara lokal, Mohon ikuti langkah-langkah berikut:
 
 ```bash
-# Clone repositori
-git clone https://github.com/username/nama-repo.git
-cd nama-repo
+# 1 Clone repositori
+git clone https://github.com/felixhikari/bookstore-laravel.git
+cd bookstore-laravel
 
-# Install dependencies Laravel
+# 2 Install dependencies Laravel
 composer install
 
-# Salin file .env dan generate key
+# 3 Salin file .env dan generate key
 cp .env.example .env
 php artisan key:generate
 
-# Konfigurasi database di file .env
+# 4 Konfigurasi database di file .env
 # Contoh:
 # DB_CONNECTION=mysql
 # DB_HOST=127.0.0.1
 # DB_PORT=3306
-# DB_DATABASE=book_app
+# DB_DATABASE=bookstore
 # DB_USERNAME=root
 # DB_PASSWORD=
 
-# Buat database kosong di MySQL dengan nama book_app
+# 5 Buat database kosong di MySQL dengan nama bookstore
 
-# Jalankan migrasi tabel
+# 6 Jalankan migrasi tabel
 php artisan migrate
 
-# (Opsional) Jalankan seeder untuk data dummy
+# 7 (Opsional) Jalankan seeder untuk data dummy
 php artisan db:seed
 
-# Jalankan server lokal Laravel
+# 8 Jalankan server lokal Laravel
 php artisan serve
 
-# Akses aplikasi di browser:
-# http://localhost:8000/list-book
-# http://localhost:8000/rate-book
-# http://localhost:8000/top-authors
+# 9 Akses aplikasi di browser:
+# http://127.0.0.1:8000/book-list
+# http://127.0.0.1:8000/rate-book
+# http://127.0.0.1:8000/top-authors

@@ -74,6 +74,7 @@ Seeding menggunakan Faker dengan detail berikut:
 C:\xampp\php\php.ini
 
 ``
+- Konfigurasi memory_limit di php.ini
 memory_limit = 1G
 ``
 

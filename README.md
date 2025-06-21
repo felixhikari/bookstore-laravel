@@ -70,8 +70,8 @@ Seeding menggunakan Faker dengan detail berikut:
 
 - Proses seeding membutuhkan waktu menyesuaikan kemampuan perangkat (bisa menit hingga jam) dan memerlukan memory limit yang cukup atau lebih
 - Durasi seeding menyesuaikan dengan perangkat, usahakan menggunakan perangkat dengan spesifikasi yang memadai dan mengalokasikan memory limit PHP yang cukup atau lebih.
-- Lokasi PHP.ini umumnya ada di 
-C:\xampp\php\php.ini
+- Lokasi PHP.ini menyesuaikan lokasi PHP di perangkat
+C:\php\php.ini
 
 - Konfigurasi memory_limit di php.ini
 

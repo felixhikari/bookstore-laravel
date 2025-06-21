@@ -7,6 +7,7 @@ use App\Models\Author;
 use App\Models\Book;
 use App\Models\Rating;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -79,31 +80,37 @@ class BookController extends Controller
             $limit = $request->query('limit');
 
             $result = null;
-            if(empty(trim($search))){
-                $result = Book::query()
-                ->limit($limit)
-                ->get();
+            if (empty(trim($search))) {
+                $result = Book::with(['author', 'category'])
+                    ->withCount('ratings as total_voter')
+                    ->orderByDesc('total_voter')
+                    ->limit($limit)
+                    ->get();
             } else {
                 $result = Book::with(['author', 'category'])
-                ->whereRaw('LOWER(title) LIKE ?', ["%{$search}%"])
-                ->orWhereHas('author',function($query) use ($search){
-                    $query->whereRaw('LOWER(name) LIKE?', ["%{$search}%"]);
-                })
-                ->limit($limit)
-                ->get();
+                    ->withCount('ratings as total_voter') // hitung jumlah rating sebagai total_voter
+                    ->whereRaw('LOWER(title) LIKE ?', ["%{$search}%"])
+                    ->orWhereHas('author', function ($query) use ($search) {
+                        $query->whereRaw('LOWER(name) LIKE ?', ["%{$search}%"]);
+                    })
+                    ->orderByDesc('total_voter')
+                    ->limit($limit)
+                    ->get();
             }
-
-            $formated = $result->map(function($book){
-                $average_rating = Rating::where('book_id', $book->id)->avg('rating');
-                $voter = Rating::where('book_id', $book->id)->count();
+            
+            $formated = $result->map(function ($book) {
+                $average_rating = $book->ratings()->avg('rating');
+                $voter = $book->ratings()->count();
+            
                 return [
                     'title' => $book->title,
                     'name' => $book->author?->name,
                     'category' => $book->category?->category,
-                    'average_rating' => $average_rating ?? 0,
-                    'total_voter' => $voter
+                    'average_rating' => round($average_rating ?? 0, 2),
+                    'total_voter' => $voter,
                 ];
             });
+
 
             $array = $formated->toArray();
             usort($array, function($a, $b){
@@ -111,7 +118,7 @@ class BookController extends Controller
             });
             return response()->json([
                 'success' => true,
-                'data' => $array
+                'data' => $formated
             ], 200); 
         } catch (\Throwable $th) {
             return response()->json([

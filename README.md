@@ -68,7 +68,7 @@ Seeding menggunakan Faker dengan detail berikut:
 - 100.000 fakes books
 - 500.000 fakes rating
 
-- Proses seeding membutuhkan waktu menyesuaikan kemampuan perangkat dan memerlukan memory limit yang cukup atau lebih
+- Proses seeding membutuhkan waktu menyesuaikan kemampuan perangkat (mulai dari menit hingga jam) dan memerlukan memory limit yang cukup atau lebih
 - Durasi seeding menyesuaikan dengan perangkat, usahakan menggunakan perangkat dengan spesifikasi yang memadai dan mengalokasikan memory limit PHP yang cukup atau lebih.
 - Lokasi PHP.ini umumnya ada di 
 C:\xampp\php\php.ini
@@ -117,11 +117,11 @@ php artisan key:generate
 # 6. Jalankan migrasi database
 php artisan migrate
 
-# 7. (Opsional) Jalankan seeder untuk data dummy
-php artisan db:seed
+# 7. (Recommend) Pastikan memory limit PHP cukup untuk seeding data dummy
+php -d memory_limit=1G artisan db:seed
 
-# 8. Pastikan memory limit PHP cukup untuk seeding
-php -d memory_limit=512M artisan db:seed
+# 8. (Opsional) Jalankan seeder untuk data dummy
+php artisan db:seed
 
 # 9. Pastikan memory limit PHP cukup untuk running server di PHP.ini
 memory_limit = 1G

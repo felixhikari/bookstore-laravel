@@ -16,7 +16,7 @@ Sebelum menginstall, pastikan kamu memiliki:
 - Composer ^2.x
 - Laravel ^10.x
 - MySQL/MariaDB
-- Node.js & NPM (opsional, jika kamu menggunakan asset frontend)
+- Xampp (Recommend)
 
 ---
 
@@ -68,7 +68,7 @@ Seeding menggunakan Faker dengan detail berikut:
 - 100.000 fakes books
 - 500.000 fakes rating
 
-- Proses seeding membutuhkan waktu yang sangat lama dan memerlukan memory limit yang cukup atau lebih
+- Proses seeding membutuhkan waktu menyesuaikan kemampuan perangkat dan memerlukan memory limit yang cukup atau lebih
 - Durasi seeding menyesuaikan dengan perangkat, usahakan menggunakan perangkat dengan spesifikasi yang memadai dan mengalokasikan memory limit PHP yang cukup atau lebih.
 - Lokasi PHP.ini umumnya ada di 
 C:\xampp\php\php.ini

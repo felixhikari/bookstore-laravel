@@ -107,6 +107,8 @@ php artisan serve
 # http://127.0.0.1:8000/rate-book
 # http://127.0.0.1:8000/top-authors
 
+---
+
 ## Catatan Penting
 Seeding menggunakan Faker dengan detail berikut:
 - 1000 fakes author
@@ -128,4 +130,3 @@ contoh error
   PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in D:\My Job\Apply\Timedoor\bookstore-laravel\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php on line 669
   PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in D:\My Job\Apply\Timedoor\bookstore-laravel\vendor\symfony\error-handler\Error\FatalError.php on line 14
 ``
----

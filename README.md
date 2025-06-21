@@ -8,9 +8,21 @@ Proyek ini adalah aplikasi web sederhana berbasis Laravel yang memiliki tiga hal
 
 ---
 
+## ✅ Requirements
+
+Sebelum menginstall, pastikan kamu memiliki:
+
+- PHP ^8.1
+- Composer ^2.x
+- Laravel ^10.x
+- MySQL/MariaDB
+- Node.js & NPM (opsional, jika kamu menggunakan asset frontend)
+
+---
+
 ## 🌐 URL Halaman
 
-Setelah server dijalankan (`php artisan serve`), berikut adalah URL masing-masing halaman:
+Setelah server dijalankan (`php artisan serve`), berikut URL halaman utama:
 
 - 📖 **List Book**: [http://127.0.0.1:8000/book-list](http://127.0.0.1:8000/book-list)
 - ⭐ **Rate Book**: [http://127.0.0.1:8000/rate-book](http://127.0.0.1:8000/rate-book)
@@ -20,56 +32,50 @@ Setelah server dijalankan (`php artisan serve`), berikut adalah URL masing-masin
 
 ## ⚙️ Fitur
 
-### 📖 /book-list
-- Menampilkan daftar semua buku.
-- Informasi: judul, kategori, rata-rata rating dan voter.
-- Pengurutan berdasarkan rata-rata rating tertinggi 
+### 📖 `/book-list`
+- Menampilkan semua buku
+- Informasi: judul, kategori, rata-rata rating, dan total voter
+- Diurutkan berdasarkan rata-rata rating dimulai dari tertinggi ke terendah
 
-### ⭐ /rate-book
-- Form untuk memberikan rating buku.
-- Rating valid hanya jika **lebih dari 5**.
-- Disimpan ke dalam tabel `ratings`.
+### ⭐ `/rate-book`
+- Form untuk memberikan rating buku
+- Hanya rating **lebih dari 5** yang dianggap valid
 
-### 🏆 /top-authors
-- Menampilkan **10 penulis teratas** berdasarkan jumlah voter (rating > 5).
-- Diurutkan dari yang terbanyak.
+### 🏆 `/top-authors`
+- Menampilkan **10 penulis teratas** berdasarkan jumlah voter (rating > 5)
 
 ---
 
 ## 🧱 Struktur Database
 
 Tabel utama:
+- `authors`: data penulis
+- `books`: data buku (relasi ke penulis & kategori)
+- `categories`: data kategori buku
+- `ratings`: data rating yang diberikan ke buku
 
-- `authors`: menyimpan data penulis
-- `books`: menyimpan data buku (berelasi ke penulis dan kategori)
-- `categories`: menyimpan data kategori
-- `ratings`: menyimpan data rating buku
-
-Relasi antar tabel:
-
+Relasi:
 - `books.author_id` → `authors.id`
 - `books.category_id` → `categories.id`
 - `ratings.book_id` → `books.id`
 
 ---
 
-## 🚀 Cara Menjalankan Proyek
-
-Untuk menjalankan aplikasi ini secara lokal, Mohon ikuti langkah-langkah berikut:
+## 🚀 Langkah Instalasi
 
 ```bash
-# 1 Clone repositori
+# 1. Clone repositori
 git clone https://github.com/felixhikari/bookstore-laravel.git
 cd bookstore-laravel
 
-# 2 Install dependencies Laravel
+# 2. Install dependencies Laravel
 composer install
 
-# 3 Salin file .env dan generate key
+# 3. Copy file .env dan generate key
 cp .env.example .env
 php artisan key:generate
 
-# 4 Konfigurasi database di file .env
+# 4. Konfigurasi database di file .env
 # Contoh:
 # DB_CONNECTION=mysql
 # DB_HOST=127.0.0.1
@@ -78,18 +84,23 @@ php artisan key:generate
 # DB_USERNAME=root
 # DB_PASSWORD=
 
-# 5 Buat database kosong di MySQL dengan nama bookstore
+# 5. Buat database baru di MySQL
+# (contoh nama: bookstore)
 
-# 6 Jalankan migrasi tabel
+# 6. Jalankan migrasi database
 php artisan migrate
 
-# 7 (Opsional) Jalankan seeder untuk data dummy
+# 7. (Opsional) Jalankan seeder untuk data dummy
 php artisan db:seed
 
-# 8 Jalankan server lokal Laravel
+# 8. Pastikan permission folder Laravel sudah sesuai
+chmod -R 775 storage
+chmod -R 775 bootstrap/cache
+
+# 9. Jalankan server lokal Laravel
 php artisan serve
 
-# 9 Akses aplikasi di browser:
+# 10. Akses aplikasi di browser:
 # http://127.0.0.1:8000/book-list
 # http://127.0.0.1:8000/rate-book
 # http://127.0.0.1:8000/top-authors

@@ -68,8 +68,8 @@ Seeding menggunakan Faker dengan detail berikut:
 - 100.000 fakes books
 - 500.000 fakes rating
 
-- Proses seeding membutuhkan waktu yang sangat lama dan memerlukan memory limit yang besar
-- Durasi seeding menyesuaikan dengan perangkat, usahakan menggunakan perangkat denga spesifikasi yang memadai dan mengalokasikan memory limit PHP yang besar.
+- Proses seeding membutuhkan waktu yang sangat lama dan memerlukan memory limit yang cukup atau lebih
+- Durasi seeding menyesuaikan dengan perangkat, usahakan menggunakan perangkat dengan spesifikasi yang memadai dan mengalokasikan memory limit PHP yang cukup atau lebih.
 - Lokasi PHP.ini umumnya ada di 
 C:\xampp\php\php.ini
 
@@ -78,6 +78,7 @@ memory_limit = 1G
 ``
 
 contoh error
+
 ``
   PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in D:\My Job\Apply\Timedoor\bookstore-laravel\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php on line 669
   PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in D:\My Job\Apply\Timedoor\bookstore-laravel\vendor\symfony\error-handler\Error\FatalError.php on line 14
@@ -123,10 +124,12 @@ php -d memory_limit=512M artisan db:seed
 # 9. Pastikan memory limit PHP cukup untuk running server di PHP.ini
 memory_limit = 1G
 
-# 10. Jalankan server lokal Laravel
+# 10. Hidupkan host mySQL di Xampp
+
+# 11. Jalankan server lokal Laravel
 php artisan serve
 
-# 11. Akses aplikasi di browser:
+# 12. Akses aplikasi di browser:
 # http://127.0.0.1:8000/book-list
 # http://127.0.0.1:8000/rate-book
 # http://127.0.0.1:8000/top-authors

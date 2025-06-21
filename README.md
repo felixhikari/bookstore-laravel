@@ -86,6 +86,7 @@ contoh error
   PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in D:\My Job\Apply\Timedoor\bookstore-laravel\vendor\symfony\error-handler\Error\FatalError.php on line 14
 ``
 
+- Selain itu di halaman /rate-book berusaha menampilkan dropdown book banyak, jika tidak bisa diclick disarankan memilih filter author saja maka akan memfilter buku sesuai author yang dipilih 
 ---
 
 ## 🚀 Langkah Instalasi
